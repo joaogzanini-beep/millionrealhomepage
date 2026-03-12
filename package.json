@@ -1,19 +1,12 @@
 {
   "name": "million-real-homepage",
   "version": "1.0.0",
-  "description": "A versão brasileira do Million Dollar Homepage",
-  "main": "index.js",
+  "description": "A guerra dos pixels começou",
+  "main": "index.html",
   "scripts": {
-    "dev": "vercel dev",
-    "deploy": "vercel --prod"
+    "start": "node index.html"
   },
   "dependencies": {
-    "mercadopago": "^1.5.14"
-  },
-  "devDependencies": {
-    "vercel": "^latest"
-  },
-  "engines": {
-    "node": "20.x"
+    "express": "^4.18.2"
   }
 }
