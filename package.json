@@ -1,12 +1,7 @@
 {
   "name": "million-real-homepage",
   "version": "1.0.0",
-  "description": "A guerra dos pixels começou",
-  "main": "index.html",
   "scripts": {
-    "start": "node index.html"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
+    "build": "echo 'No build step needed'"
   }
 }
