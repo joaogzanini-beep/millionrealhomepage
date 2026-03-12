@@ -2,16 +2,49 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Million Real Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Million Real Homepage Brasil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
-        body { background: black; color: #00e064; font-family: sans-serif; text-align: center; padding-top: 100px; }
-        .grade { width: 300px; height: 300px; border: 2px solid #333; margin: 20px auto; display: flex; align-items: center; justify-content: center; color: #333; }
+        body { background: #080808; color: white; font-family: sans-serif; margin: 0; text-align: center; }
+        header { padding: 40px 20px; border-bottom: 1px solid #222; }
+        h1 { font-family: 'Bebas Neue', cursive; font-size: 4rem; color: #00e064; margin: 0; }
+        .stats { margin: 20px 0; color: #888; font-size: 1.2rem; }
+        
+        /* A GRADE DE 1 MILHÃO (Simulação visual) */
+        #grid-container { 
+            width: 1000px; height: 1000px; 
+            margin: 20px auto; 
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'), #111;
+            border: 5px solid #222;
+            position: relative;
+            cursor: crosshair;
+        }
+
+        .buy-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #ffe600; color: black; border: none;
+            padding: 20px 40px; font-family: 'Bebas Neue'; font-size: 1.5rem;
+            cursor: pointer; border-radius: 50px; box-shadow: 0 10px 30px rgba(255,230,0,0.3);
+            text-decoration: none; z-index: 100;
+        }
+        .buy-btn:hover { transform: scale(1.05); background: #00e064; }
     </style>
 </head>
 <body>
-    <h1>🇧🇷 MILLION REAL HOMEPAGE</h1>
-    <div class="grade">ESPAÇO DISPONÍVEL</div>
-    <p>O site está sendo configurado. A guerra começa em breve.</p>
-    <p>Admin: <a href="/admin.html" style="color: yellow;">Clique aqui para logar</a></p>
+
+<header>
+    <h1>MILLION REAL HOMEPAGE</h1>
+    <div class="stats">
+        Pixels vendidos: <strong>0</strong> | Restantes: <strong>1.000.000</strong>
+    </div>
+</header>
+
+<div id="grid-container">
+    <p style="color: #333; padding-top: 450px;">A GRADE MAIS VALIOSA DO BRASIL</p>
+</div>
+
+<a href="https://wa.me/SEUNUMERO" class="buy-btn">COMPRAR MEU ESPAÇO (R$1/PIXEL) →</a>
+
 </body>
 </html>
