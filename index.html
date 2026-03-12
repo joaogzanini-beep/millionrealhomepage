@@ -4,47 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Million Real Homepage Brasil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
-        body { background: #080808; color: white; font-family: sans-serif; margin: 0; text-align: center; }
+        :root { --green: #00e064; --black: #080808; --gray: #141414; }
+        body { background: var(--black); color: white; font-family: 'Space Mono', monospace; margin: 0; text-align: center; }
         header { padding: 40px 20px; border-bottom: 1px solid #222; }
-        h1 { font-family: 'Bebas Neue', cursive; font-size: 4rem; color: #00e064; margin: 0; }
-        .stats { margin: 20px 0; color: #888; font-size: 1.2rem; }
+        h1 { font-family: 'Bebas Neue', cursive; font-size: 4rem; color: var(--green); margin: 0; }
         
-        /* A GRADE DE 1 MILHÃO (Simulação visual) */
-        #grid-container { 
-            width: 1000px; height: 1000px; 
-            margin: 20px auto; 
-            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'), #111;
-            border: 5px solid #222;
-            position: relative;
-            cursor: crosshair;
+        /* A GRADE */
+        #pixel-canvas { 
+            width: 1000px; height: 1000px; margin: 20px auto; 
+            background-image: linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px);
+            background-size: 10px 10px; background-color: #000;
+            border: 2px solid #333; position: relative;
         }
 
-        .buy-btn {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #ffe600; color: black; border: none;
-            padding: 20px 40px; font-family: 'Bebas Neue'; font-size: 1.5rem;
-            cursor: pointer; border-radius: 50px; box-shadow: 0 10px 30px rgba(255,230,0,0.3);
-            text-decoration: none; z-index: 100;
+        .buy-now {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            background: var(--green); color: black; border: none;
+            padding: 20px 40px; font-family: 'Bebas Neue'; font-size: 1.8rem;
+            cursor: pointer; border-radius: 50px; text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,224,100,0.3); z-index: 999;
         }
-        .buy-btn:hover { transform: scale(1.05); background: #00e064; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>MILLION REAL HOMEPAGE</h1>
-    <div class="stats">
-        Pixels vendidos: <strong>0</strong> | Restantes: <strong>1.000.000</strong>
-    </div>
+    <p>O outdoor eterno da internet brasileira. R$ 1 por pixel.</p>
 </header>
 
-<div id="grid-container">
-    <p style="color: #333; padding-top: 450px;">A GRADE MAIS VALIOSA DO BRASIL</p>
-</div>
+<div id="pixel-canvas">
+    </div>
 
-<a href="https://wa.me/46991287317" class="buy-btn">COMPRAR MEU ESPAÇO (R$1/PIXEL) →</a>
+<a href="https://wa.me/55SEUNUMERO?text=Quero%20comprar%20um%20espaço%20na%20Million%20Real" class="buy-now">
+    GARANTIR MEU ESPAÇO NO WHATSAPP →
+</a>
+
+<script>
+    // ── CONFIGURAÇÃO CRÍTICA ──
+    const CONFIG = {
+        SUPABASE_URL: 'COLE_SUA_URL_AQUI',
+        SUPABASE_KEY: 'COLE_SUA_KEY_AQUI'
+    };
+
+    // Função simples para carregar pixels do banco (se houver)
+    async function loadPixels() {
+        try {
+            const res = await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/pixels?status=eq.approved`, {
+                headers: { 'apikey': CONFIG.SUPABASE_KEY, 'Authorization': `Bearer ${CONFIG.SUPABASE_KEY}` }
+            });
+            const data = await res.json();
+            // Lógica para desenhar pixels comprados (simplificada)
+            console.log("Pixels carregados:", data.length);
+        } catch (e) { console.log("Aguardando banco de dados..."); }
+    }
+    loadPixels();
+</script>
 
 </body>
 </html>
